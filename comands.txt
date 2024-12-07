@@ -1,0 +1,8 @@
+npm i @fortawesome/fontawesome-free
+npm i @popperjs/core
+npm i bootstrap
+npm i bootstrap-icons
+npm i jssha
+npm i jwt-decode
+npm i ngx-pagination
+npm i ngx-toastr
