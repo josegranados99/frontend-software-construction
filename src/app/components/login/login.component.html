@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-md-4 pt-5">
+    <div class="text-center pb-4">
+      <h3>Usuarios Registrados</h3>
+    </div>
+    <form
+      data-bs-theme="dark"
+      #frmLogin="ngForm"
+      (submit)="frmLogin.form.valid && sendForm(frmLogin)"
+    >
+      <div class="mb-3">
+        <label class="form-label"
+          >Correo electrónico
+          <span class="text-danger">*</span>
+        </label>
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail"
+          name="inputEmail"
+          #inputEmail="ngModel"
+          [(ngModel)]="loginObject.accessEmail"
+          autocomplete="off"
+          [email]="true"
+          required
+          [ngClass]="{ 'is-invalid': frmLogin.submitted && inputEmail.invalid }"
+        />
+        <label for="inputEmail">
+          <div
+            class="text-danger error"
+            *ngIf="frmLogin.submitted && inputEmail.invalid; else labelEmail"
+          >
+            <span *ngIf="inputEmail.errors?.['required']"> Obligatorio </span>
+            <span *ngIf="inputEmail.errors?.['email']"> Correo inválido </span>
+          </div>
+          <ng-template #labelEmail>
+            <span> &nbsp; </span>
+          </ng-template>
+        </label>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label"
+          >Contraseña
+          <span class="text-danger">*</span>
+        </label>
+        <input
+          type="password"
+          class="form-control"
+          id="inputPass"
+          name="inputPass"
+          #inputPass="ngModel"
+          [(ngModel)]="loginObject.accessPassword"
+          autocomplete="off"
+          required
+          [ngClass]="{ 'is-invalid': frmLogin.submitted && inputPass.invalid }"
+        />
+        <label for="inputPass">
+          <div
+            class="text-danger error"
+            *ngIf="frmLogin.submitted && inputPass.invalid; else labelPass"
+          >
+            <span *ngIf="inputPass.errors?.['required']"> Obligatorio </span>
+          </div>
+          <ng-template #labelPass>
+            <span> &nbsp; </span>
+          </ng-template>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+</div>
