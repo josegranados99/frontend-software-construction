@@ -18,5 +18,22 @@ ng g c components/contact --skip-tests=true
 ng g c components/table --skip-tests=true
 ng g c components/register --skip-tests=true
 
+ng g c components/dash/header-dash --skip-tests=true
+ng g c components/dash/sidebar-dash --skip-tests=true
+ng g c components/dash/body-dash --skip-tests=true
+ng g c components/dash/welcome-dash --skip-tests=true
+
+ng g c components/private/products/list-product --skip-tests=true
+ng g c components/private/products/create-product --skip-tests=true
+ng g c components/private/type-products/list-type --skip-tests=true
+ng g c components/private/type-products/create-type --skip-tests=true
+
 //Creación de servicios
 ng g s service/api/register --skip-tests=true
+ng g s service/api/product-type --skip-tests=true
+ng g s service/api/product --skip-tests=true
+
+
+//Guardianes
+ng g s service/guard/security --skip-tests=true
+ng g g vigilant --skip-tests=true

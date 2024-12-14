@@ -8,10 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import { RegisterService } from '../../service/api/register.service';
 import { TokenInfo } from '../../models/login/TokenInfo';
 import { Register } from '../../models/register/Register';
-import {
-  TOKEN_BACKEND,
-  UNIQUE_SESSION,
-} from '../../utilities/domains/mySession';
+import { TOKEN_BACKEND, UNIQUE_SESSION } from '../../utilities/domains/mySession';
 import { catchError, map, Subscription } from 'rxjs';
 import { observerAny } from '../../utilities/observers/anyType';
 import { msgAny } from '../../utilities/message/msgToastr';
@@ -28,11 +25,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   public tmp: any;
   public subsCreateUser: Subscription;
 
-  constructor(
-    private registerService: RegisterService,
-    private router: Router,
-    private msgToast: ToastrService
-  ) {
+  constructor(private registerService: RegisterService, private router: Router, private msgToast: ToastrService) {
     this.register = new Register('', '', '', '');
     this.passSha512 = this.tmp;
     this.subsCreateUser = this.tmp;
@@ -61,7 +54,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .createUser(payload)
       .pipe(
         map((res: any) => {
-          console.log(`Response backend: ${JSON.stringify(res)}`);
+          localStorage.setItem(TOKEN_BACKEND, res);
+          const infoObj: TokenInfo = jwtDecode(String(localStorage.getItem(TOKEN_BACKEND)));
+          console.log(`token: ${infoObj}`);
+          msgAny('success', 'User created successfully', 'Success', this.msgToast);
+
+          this.router.navigate(['/dash/board']);
         }),
         catchError((myError) => {
           console.log(`Error: ${JSON.stringify(myError)}`);

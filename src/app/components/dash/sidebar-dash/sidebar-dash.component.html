@@ -1,0 +1,40 @@
+<div>
+  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="position-sticky pt-3 sidebar-sticky">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page">
+            <i class="fa-solid fa-house"></i>
+            Menú principal
+          </a>
+        </li>
+        <li class="nav-item ps-3 text-success pt-3">Tipo de productos</li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/dash/product-type']" routerLinkActive="active">
+            <i class="fa-solid fa-plus"></i>
+            Crear tipo producto
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/dash/list-product-type']" routerLinkActive="active">
+            <i class="fa-solid fa-list-check"></i>
+            Listar tipo producto
+          </a>
+        </li>
+        <li class="nav-item ps-3 text-success pt-3">Productos</li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/dash/product']" routerLinkActive="active">
+            <i class="fa-solid fa-plus"></i>
+            Crear productos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/dash/list-product']" routerLinkActive="active">
+            <i class="fa-solid fa-list-check"></i>
+            Listar productos
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

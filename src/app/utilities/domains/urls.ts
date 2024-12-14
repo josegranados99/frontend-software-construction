@@ -6,4 +6,6 @@ export const LOGIN_ROUTE = API_URL + MAIN_ROUTE + '/login';
 export const USER_CREATE_ROUTE = API_URL + MAIN_ROUTE + '/user/create';
 export const PRODUCT_TYPE_CREATE_ROUTE =
   API_URL + MAIN_ROUTE + '/product-type/create';
+export const PRODUCT_TYPE_LIST_ROUTE =
+  API_URL + MAIN_ROUTE + '/product-type/get-all';
 export const PRODUCT_CREATE_ROUTE = API_URL + MAIN_ROUTE + '/product/create';

@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-md-7 pt-5">
+    <div class="text-center pb-4">
+      <h3>Crear tipo de producto</h3>
+    </div>
+    <div class="card border border-danger">
+      <div class="card-body m-2">
+        <form data-bs-theme="dark" #frmCreate="ngForm" (submit)="frmCreate.form.valid && sendForm(frmCreate)">
+          <div class="mb-3">
+            <label class="form-label"
+              >Nombre
+              <span class="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName"
+              name="inputName"
+              #inputName="ngModel"
+              [(ngModel)]="productTypeObj.productTypeName"
+              autocomplete="off"
+              required
+              [ngClass]="{ 'is-invalid': frmCreate.submitted && inputName.invalid }"
+            />
+            <label for="inputName">
+              <div class="text-danger error" *ngIf="frmCreate.submitted && inputName.invalid; else labelName">
+                <span *ngIf="inputName.errors?.['required']"> Obligatorio </span>
+              </div>
+              <ng-template #labelName>
+                <span> &nbsp; </span>
+              </ng-template>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
