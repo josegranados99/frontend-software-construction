@@ -1,1 +1,28 @@
-<p>list-type works!</p>
+<div>
+  <div class="bd-example">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th style="width: 15%">Código</th>
+          <th style="width: 50%">Tipo de producto</th>
+          <th class="text-center" style="width: 25%">Cantidad de productos</th>
+          <th style="width: 10%">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obj of arrayProductTp; let indice = index">
+          <td>{{ obj.productTypeCode }}</td>
+          <td>{{ obj.productTypeName }}</td>
+          <td class="text-center">{{ obj.amountProduct }}</td>
+          <td>
+            <div>
+              <a> <i class="fa-regular fa-pen-to-square text-info"></i> </a>
+              &nbsp;
+              <a><i class="fa-regular fa-trash-can text-danger"></i></a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

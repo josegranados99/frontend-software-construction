@@ -21,7 +21,7 @@ export class SecurityService {
     if (localToken) {
       try {
         const valid: TokenInfo = jwtDecode(localToken);
-        
+
         this.tokenInfoObj = {
           ...valid,
         };
@@ -39,5 +39,10 @@ export class SecurityService {
 
   public showTokenInfo(): TokenInfo {
     return this.tokenInfoObj;
+  }
+
+  public logout(): void {
+    localStorage.removeItem(TOKEN_BACKEND);
+    this.router.navigate(['/login']);
   }
 }

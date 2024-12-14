@@ -30,6 +30,7 @@ ng g c components/private/type-products/create-type --skip-tests=true
 
 //Creación de servicios
 ng g s service/api/register --skip-tests=true
+ng g s service/api/login --skip-tests=true
 ng g s service/api/product-type --skip-tests=true
 ng g s service/api/product --skip-tests=true
 
@@ -37,3 +38,6 @@ ng g s service/api/product --skip-tests=true
 //Guardianes
 ng g s service/guard/security --skip-tests=true
 ng g g vigilant --skip-tests=true
+
+//Interceptor
+ng g interceptor token --skip-tests=true
