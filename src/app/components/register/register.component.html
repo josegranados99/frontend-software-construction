@@ -1,0 +1,212 @@
+<div class="d-flex justify-content-center">
+  <div class="col-md-4 pt-5">
+    <div class="text-center pb-4">
+      <h3>Crear cuenta</h3>
+    </div>
+    <div class="card border border-danger">
+      <div class="card-body m-2">
+        <form
+          data-bs-theme="dark"
+          #frmLogin="ngForm"
+          (submit)="frmLogin.form.valid && sendForm(frmLogin)"
+        >
+          <div class="mb-3">
+            <label class="form-label"
+              >Nombres
+              <span class="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName"
+              name="inputName"
+              #inputName="ngModel"
+              [(ngModel)]="register.userName"
+              autocomplete="off"
+              required
+              [ngClass]="{
+                'is-invalid': frmLogin.submitted && inputName.invalid
+              }"
+            />
+            <label for="inputName">
+              <div
+                class="text-danger error"
+                *ngIf="frmLogin.submitted && inputName.invalid; else labelName"
+              >
+                <span *ngIf="inputName.errors?.['required']">
+                  Obligatorio
+                </span>
+              </div>
+              <ng-template #labelName>
+                <span> &nbsp; </span>
+              </ng-template>
+            </label>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"
+              >Apellidos
+              <span class="text-danger">*</span>
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputLastname"
+              name="inputLastname"
+              #inputLastname="ngModel"
+              [(ngModel)]="register.userLastname"
+              autocomplete="off"
+              required
+              [ngClass]="{
+                'is-invalid': frmLogin.submitted && inputLastname.invalid
+              }"
+            />
+            <label for="inputLastname">
+              <div
+                class="text-danger error"
+                *ngIf="
+                  frmLogin.submitted && inputLastname.invalid;
+                  else labelLastname
+                "
+              >
+                <span *ngIf="inputLastname.errors?.['required']">
+                  Obligatorio
+                </span>
+              </div>
+              <ng-template #labelLastname>
+                <span> &nbsp; </span>
+              </ng-template>
+            </label>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"
+              >Correo electrónico
+              <span class="text-danger">*</span>
+            </label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              name="inputEmail"
+              #inputEmail="ngModel"
+              [(ngModel)]="register.accessEmail"
+              autocomplete="off"
+              [email]="true"
+              required
+              [ngClass]="{
+                'is-invalid': frmLogin.submitted && inputEmail.invalid
+              }"
+            />
+            <label for="inputEmail">
+              <div
+                class="text-danger error"
+                *ngIf="
+                  frmLogin.submitted && inputEmail.invalid;
+                  else labelEmail
+                "
+              >
+                <span *ngIf="inputEmail.errors?.['required']">
+                  Obligatorio
+                </span>
+                <span *ngIf="inputEmail.errors?.['email']">
+                  Correo inválido
+                </span>
+              </div>
+              <ng-template #labelEmail>
+                <span> &nbsp; </span>
+              </ng-template>
+            </label>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"
+              >Contraseña
+              <span class="text-danger">*</span>
+            </label>
+            <input
+              minlength="4"
+              type="password"
+              class="form-control"
+              id="inputPass"
+              name="inputPass"
+              #inputPass="ngModel"
+              [(ngModel)]="register.accessPassword"
+              autocomplete="off"
+              required
+              [ngClass]="{
+                'is-invalid': frmLogin.submitted && inputPass.invalid
+              }"
+            />
+            <label for="inputPass">
+              <div
+                class="text-danger error"
+                *ngIf="frmLogin.submitted && inputPass.invalid; else labelPass"
+              >
+                <span *ngIf="inputPass.errors?.['required']">
+                  Obligatorio
+                </span>
+                <span *ngIf="inputPass.errors?.['minlength']">
+                  Mínimo cuatro caracteres
+                </span>
+              </div>
+              <ng-template #labelPass>
+                <span> &nbsp; </span>
+              </ng-template>
+            </label>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label"
+              >Confirmar contraseña
+              <span class="text-danger">*</span>
+            </label>
+            <input
+              [pattern]="register.accessPassword"
+              type="password"
+              class="form-control"
+              id="inputConfirmPass"
+              name="inputConfirmPass"
+              #inputConfirmPass="ngModel"
+              [(ngModel)]="register.confirmPassword"
+              autocomplete="off"
+              required
+              [ngClass]="{
+                'is-invalid': frmLogin.submitted && inputConfirmPass.invalid
+              }"
+            />
+            <label for="inputConfirmPass">
+              <div
+                class="text-danger error"
+                *ngIf="
+                  frmLogin.submitted && inputConfirmPass.invalid;
+                  else labelConfirmPass
+                "
+              >
+                <span *ngIf="inputConfirmPass.errors?.['required']">
+                  Obligatorio
+                </span>
+                <span *ngIf="inputConfirmPass.errors?.['pattern']">
+                  Contraseña no coincide
+                </span>
+              </div>
+              <ng-template #labelConfirmPass>
+                <span> &nbsp; </span>
+              </ng-template>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enviar</button>
+          <div>
+            Regresar al inicio
+            <a [routerLink]="['/']">Click aqui</a>
+          </div>
+          <div>
+            Regresar al login
+            <a [routerLink]="['/login']">Click aqui</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

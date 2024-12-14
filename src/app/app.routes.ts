@@ -5,6 +5,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { LoginComponent } from './components/login/login.component';
 import { TableComponent } from './components/table/table.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
   { path: 'home', component: WelcomeComponent },
@@ -12,6 +13,7 @@ export const routes: Routes = [
   { path: 'accordion', component: AccordionComponent },
   { path: 'login', component: LoginComponent },
   { path: 'tablelist', component: TableComponent },
+  { path: 'register', component: RegisterComponent },
   
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: ErrorComponent },

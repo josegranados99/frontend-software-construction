@@ -8,7 +8,7 @@ npm i jwt-decode
 npm i ngx-pagination
 npm i ngx-toastr
 
-//Creación de coponentes
+//Creación de componentes
 ng g c components/menu --skip-tests=true
 ng g c components/error --skip-tests=true
 ng g c components/login --skip-tests=true
@@ -16,3 +16,7 @@ ng g c components/welcome --skip-tests=true
 ng g c components/accordion --skip-tests=true
 ng g c components/contact --skip-tests=true
 ng g c components/table --skip-tests=true
+ng g c components/register --skip-tests=true
+
+//Creación de servicios
+ng g s service/api/register --skip-tests=true
